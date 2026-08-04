@@ -1,0 +1,37 @@
+nohup: ignoring input
+INFO:     Started server process [13110]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:46208 - "GET /static/index.html HTTP/1.1" 200 OK
+INFO:     192.168.19.1:59975 - "GET /static/index.html HTTP/1.1" 200 OK
+INFO:     192.168.19.1:55833 - "GET /api/history?limit=30 HTTP/1.1" 200 OK
+INFO:     192.168.19.1:55833 - "GET /api/latest HTTP/1.1" 200 OK
+INFO:     192.168.19.1:55833 - "GET /api/history?limit=30 HTTP/1.1" 200 OK
+INFO:     192.168.19.1:55833 - "GET /api/latest HTTP/1.1" 200 OK
+INFO:     192.168.19.1:58612 - "GET /api/history?limit=30 HTTP/1.1" 200 OK
+INFO:     192.168.19.1:58612 - "GET /api/latest HTTP/1.1" 200 OK
+INFO:     192.168.19.1:58612 - "GET /api/history?limit=30 HTTP/1.1" 200 OK
+INFO:     192.168.19.1:58612 - "GET /api/latest HTTP/1.1" 200 OK
+INFO:     192.168.19.1:58612 - "GET /api/history?limit=30 HTTP/1.1" 200 OK
+INFO:     192.168.19.1:58612 - "GET /api/latest HTTP/1.1" 200 OK
+INFO:     192.168.19.1:58612 - "GET /api/history?limit=30 HTTP/1.1" 200 OK
+INFO:     192.168.19.1:58612 - "GET /api/latest HTTP/1.1" 200 OK
+INFO:     192.168.19.1:58612 - "GET /api/history?limit=30 HTTP/1.1" 200 OK
+INFO:     192.168.19.1:58612 - "GET /api/latest HTTP/1.1" 200 OK
+INFO:     192.168.19.1:59171 - "GET /api/history?limit=30 HTTP/1.1" 200 OK
+INFO:     192.168.19.1:59171 - "GET /api/latest HTTP/1.1" 200 OK
+INFO:     192.168.19.1:59171 - "GET /api/history?limit=30 HTTP/1.1" 200 OK
+INFO:     192.168.19.1:59171 - "GET /api/latest HTTP/1.1" 200 OK
+INFO:     192.168.19.1:59171 - "GET /api/history?limit=30 HTTP/1.1" 200 OK
+INFO:     192.168.19.1:59171 - "GET /api/latest HTTP/1.1" 200 OK
+INFO:     192.168.19.1:59171 - "GET /api/history?limit=30 HTTP/1.1" 200 OK
+INFO:     192.168.19.1:59171 - "GET /api/latest HTTP/1.1" 200 OK
+INFO:     192.168.19.1:59171 - "GET /api/history?limit=30 HTTP/1.1" 200 OK
+INFO:     192.168.19.1:59171 - "GET /api/latest HTTP/1.1" 200 OK
+INFO:     192.168.19.1:59171 - "GET /api/history?limit=30 HTTP/1.1" 200 OK
+INFO:     192.168.19.1:59171 - "GET /api/latest HTTP/1.1" 200 OK
+INFO:     192.168.19.1:59171 - "GET /api/history?limit=30 HTTP/1.1" 200 OK
+INFO:     192.168.19.1:59171 - "GET /api/latest HTTP/1.1" 200 OK
+INFO:     192.168.19.1:59171 - "GET /api/history?limit=30 HTTP/1.1" 200 OK
+INFO:     192.168.19.1:59171 - "GET /api/latest HTTP/1.1" 200 OK
