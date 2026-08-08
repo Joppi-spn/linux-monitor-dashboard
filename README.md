@@ -1,4 +1,3 @@
-# Linux Monitor Dashboard - 系统资源监控看板
 # 🐧 Linux 智能监控系统 · 区块链存证版
 
 [![Docker Pulls](https://img.shields.io/badge/Docker-Ready-blue?logo=docker)](https://hub.docker.com)
@@ -55,7 +54,7 @@ docker run -d -p 8000:8000 --name monitor-app linux-monitor:latest
 # 查看运行日志
 docker logs -f monitor-app
 
-### 方式二：在 Python 环境直接运行
+### 方式二：python环境直接运行
 # 安装依赖
 pip install -r requirements.txt
 
