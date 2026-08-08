@@ -1,0 +1,9 @@
+*.log
+*.pyc
+__pycache__
+monitor.db
+monitor.db-journal
+nohup.out
+.idea
+.vscode
+.git

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Linux 资源监控看板</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <style>
+        body { margin: 0; padding: 20px; background: #0f172a; color: #e2e8f0; font-family: sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .card { background: #1e293b; border-radius: 16px; padding: 24px; width: 90%; max-width: 1000px; box-shadow: 0 8px 30px rgba(0,0,0,0.5); }
+        h1 { text-align: center; font-weight: 400; color: #94a3b8; }
+        #chart { width: 100%; height: 400px; }
+        .stats { display: flex; justify-content: space-around; margin-top: 20px; padding: 16px; background: #0f172a; border-radius: 12px; }
+        .stats .label { font-size: 14px; color: #64748b; }
+        .stats .value { font-size: 24px; font-weight: bold; color: #38bdf8; }
+        .stats .value.memory { color: #a78bfa; }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>📊 系统实时监控</h1>
+    <div id="chart"></div>
+    <div class="stats">
+        <div><div class="label">🟦 CPU</div><div class="value" id="cpu-latest">--%</div></div>
+        <div><div class="label">🟪 内存</div><div class="value memory" id="mem-latest">--%</div></div>
+        <div><div class="label">📅 最新时间</div><div class="value" id="time-latest" style="font-size:16px;">--</div></div>
+    </div>
+</div>
+<script>
+    const chartDom = document.getElementById('chart');
+    const myChart = echarts.init(chartDom, 'dark');
+    async function fetchData() {
+        try {
+            const histRes = await fetch('/api/metrics?limit=30');
+            const history = await histRes.json();
+            const latestRes = await fetch('/api/latest');
+            const latest = await latestRes.json();
+            const times = history.map(item => item.timestamp.slice(5, 16));
+            const cpuData = history.map(item => item.cpu);
+            const memData = history.map(item => item.memory);
+            if (latest && !latest.error) {
+                document.getElementById('cpu-latest').innerText = latest.cpu.toFixed(1) + '%';
+                document.getElementById('mem-latest').innerText = latest.memory.toFixed(1) + '%';
+                document.getElementById('time-latest').innerText = latest.timestamp;
+            }
+            myChart.setOption({
+                tooltip: { trigger: 'axis' },
+                legend: { data: ['CPU', '内存'], textStyle: { color: '#94a3b8' } },
+                grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
+                xAxis: { type: 'category', data: times, axisLabel: { color: '#94a3b8', rotate: 30 } },
+                yAxis: { type: 'value', min: 0, max: 100, axisLabel: { color: '#94a3b8', formatter: '{value}%' } },
+                series: [
+                    { name: 'CPU', type: 'line', smooth: true, data: cpuData, lineStyle: { color: '#38bdf8' }, areaStyle: { color: 'rgba(56,189,248,0.1)' } },
+                    { name: '内存', type: 'line', smooth: true, data: memData, lineStyle: { color: '#a78bfa' }, areaStyle: { color: 'rgba(167,139,250,0.1)' } }
+                ]
+            });
+        } catch(e) { console.error(e); }
+    }
+    fetchData();
+    setInterval(fetchData, 5000);
+    window.addEventListener('resize', () => myChart.resize());
+</script>
+</body>
+</html>
