@@ -56,7 +56,6 @@ docker run -d -p 8000:8000 --name monitor-app linux-monitor:latest
 docker logs -f monitor-app
 
 ### 方式二：在 Python 环境直接运行
-bash
 # 安装依赖
 pip install -r requirements.txt
 
