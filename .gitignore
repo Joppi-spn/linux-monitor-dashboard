@@ -1,0 +1,28 @@
+# Runtime logs and generated output
+*.log
+nohup.out
+
+# Local monitoring database and SQLite journal files
+monitor.db
+monitor.db-*
+*.sqlite
+*.sqlite3
+*.db
+
+# Python cache and virtual environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Local environment and editor files
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
